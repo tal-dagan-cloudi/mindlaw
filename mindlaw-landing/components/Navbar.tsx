@@ -40,7 +40,7 @@ export default function Navbar() {
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
-            Mind<span className="text-gray-400">_</span>Law
+            Mind<span className="text-gray-400">.</span>Law
           </motion.a>
 
           {/* Navigation Links */}
