@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
+            className="text-2xl font-medium text-gray-700 hover:text-black transition-colors"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
