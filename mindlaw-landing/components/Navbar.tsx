@@ -36,12 +36,12 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-1"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             <span className="text-2xl font-serif font-bold tracking-tight">
-              mindlaw
+              Mind<span className="text-gray-400">.</span>Law
             </span>
           </motion.a>
 

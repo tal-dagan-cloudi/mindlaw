@@ -42,7 +42,9 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <h3 className="text-2xl font-serif font-bold mb-4">mindlaw</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">
+                Mind<span className="text-gray-400">.</span>Law
+              </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Professional-class AI built for the legal industry.
               </p>
@@ -79,7 +81,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-600">
-              © 2025 mindlaw. All rights reserved.
+              © 2025 Mind.Law. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               {['LinkedIn', 'Twitter', 'GitHub'].map((social) => (
