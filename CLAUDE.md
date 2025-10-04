@@ -142,3 +142,4 @@ The configuration automatically:
 
 ### Alternative Platforms
 Build output located in `.next/` folder after running `npm run build` in the `mindlaw-landing/` directory. Also compatible with Vercel, Netlify, or any Next.js-compatible platform.
+- Allways commit and push after any change

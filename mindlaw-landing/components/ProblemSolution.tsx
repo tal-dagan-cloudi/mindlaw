@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 export default function ProblemSolution() {
   const ref = useRef(null);
@@ -23,7 +24,16 @@ export default function ProblemSolution() {
   ];
 
   return (
-    <section id="solutions" className="py-24 bg-white">
+    <section id="solutions" className="relative py-24 bg-white overflow-hidden">
+      {/* Background Accent Images */}
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-5">
+        <Image
+          src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&q=80"
+          alt="Professional"
+          fill
+          className="object-cover"
+        />
+      </div>
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
