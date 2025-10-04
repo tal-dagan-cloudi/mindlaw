@@ -42,7 +42,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <h3 className="text-2xl font-serif font-bold mb-4">
+              <h3 className="text-2xl font-logo font-bold mb-4">
                 Mind<span className="text-gray-400">.</span>Law
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">

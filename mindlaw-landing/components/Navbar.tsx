@@ -40,7 +40,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="text-2xl font-serif font-bold tracking-tight">
+            <span className="text-2xl font-logo font-bold tracking-tight">
               Mind<span className="text-gray-400">.</span>Law
             </span>
           </motion.a>

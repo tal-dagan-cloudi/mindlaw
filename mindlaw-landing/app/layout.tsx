@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Noto_Sans } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -12,6 +12,13 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+});
+
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  variable: '--font-noto-sans',
+  display: 'swap',
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${notoSans.variable}`}>
       <body className="antialiased">
         {children}
       </body>
