@@ -8,4 +8,4 @@ cmds = ['cd mindlaw-landing && npm ci']
 cmds = ['cd mindlaw-landing && npm run build']
 
 [start]
-cmd = 'cd mindlaw-landing && npm start'
+cmd = 'cd /app/mindlaw-landing && npm start'
