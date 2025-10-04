@@ -6,14 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository contains the **mindlaw** landing page - an AI-powered legal intelligence platform built with Next.js 15, TypeScript, and Tailwind CSS 4.
 
-The project is located in the `mindlaw-landing/` subdirectory.
-
 ## Development Commands
 
 ```bash
-# Navigate to the project directory
-cd mindlaw-landing
-
 # Development
 npm run dev              # Start development server with Turbopack (port 3001)
 
@@ -36,7 +31,7 @@ npm run lint             # Run ESLint checks
 
 ### Project Structure
 ```
-mindlaw-landing/
+mindlaw/
 ├── app/
 │   ├── layout.tsx       # Root layout with font definitions and metadata
 │   ├── page.tsx         # Home page - composes all sections

@@ -1,7 +1,0 @@
-Link Font
-
-Heading: SF Pro Display
-https://developer.apple.com/fonts/
-
-Body Text: Alef
-https://fonts.google.com/specimen/Alef
