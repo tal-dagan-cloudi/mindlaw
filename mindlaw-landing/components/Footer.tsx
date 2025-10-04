@@ -43,7 +43,7 @@ export default function Footer() {
               className="mb-6"
             >
               <h3 className="text-3xl font-medium text-gray-700 mb-4">
-                Mind<span className="text-gray-400">.</span>Law
+                Mind<span className="text-gray-400">_</span>Law
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Professional-class AI built for the legal industry.
