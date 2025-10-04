@@ -6,9 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository contains the **mindlaw** landing page - an AI-powered legal intelligence platform built with Next.js 15, TypeScript, and Tailwind CSS 4.
 
+The landing page is located in the `mindlaw-landing/` subdirectory.
+
 ## Development Commands
 
 ```bash
+# Navigate to the landing page directory
+cd mindlaw-landing
+
 # Development
 npm run dev              # Start development server with Turbopack (port 3001)
 
@@ -32,19 +37,23 @@ npm run lint             # Run ESLint checks
 ### Project Structure
 ```
 mindlaw/
-├── app/
-│   ├── layout.tsx       # Root layout with font definitions and metadata
-│   ├── page.tsx         # Home page - composes all sections
-│   └── globals.css      # Global styles with Tailwind directives
-├── components/
-│   ├── Navbar.tsx       # Sticky navigation with scroll effects
-│   ├── Hero.tsx         # Full-screen hero with animated grid background
-│   ├── Features.tsx     # 6-card feature showcase grid
-│   ├── ProblemSolution.tsx  # Side-by-side value proposition
-│   ├── CTA.tsx          # Call-to-action section
-│   └── Footer.tsx       # Multi-column footer
-└── lib/
-    └── utils.ts         # cn() utility for className merging
+├── mindlaw-landing/          # Landing page Next.js application
+│   ├── app/
+│   │   ├── layout.tsx       # Root layout with font definitions and metadata
+│   │   ├── page.tsx         # Home page - composes all sections
+│   │   └── globals.css      # Global styles with Tailwind directives
+│   ├── components/
+│   │   ├── Navbar.tsx       # Sticky navigation with scroll effects
+│   │   ├── Hero.tsx         # Full-screen hero with animated grid background
+│   │   ├── Features.tsx     # 6-card feature showcase grid
+│   │   ├── ProblemSolution.tsx  # Side-by-side value proposition
+│   │   ├── CTA.tsx          # Call-to-action section
+│   │   └── Footer.tsx       # Multi-column footer
+│   ├── lib/
+│   │   └── utils.ts         # cn() utility for className merging
+│   └── package.json         # Next.js dependencies and scripts
+├── nixpacks.toml            # Railway build configuration
+└── railway.json             # Railway deployment settings
 ```
 
 ### Key Design Patterns
@@ -121,4 +130,15 @@ mindlaw/
 
 ## Deployment
 
-Build output located in `.next/` folder after running `npm run build`. Ready for deployment on Vercel, Netlify, or any Next.js-compatible platform.
+### Railway Deployment
+This project is configured for Railway deployment with:
+- **nixpacks.toml**: Defines build phases and Node.js 20 environment
+- **railway.json**: Specifies nixpacksPath and deployment settings
+
+The configuration automatically:
+1. Installs dependencies in `mindlaw-landing/`
+2. Builds the Next.js application
+3. Starts the production server
+
+### Alternative Platforms
+Build output located in `.next/` folder after running `npm run build` in the `mindlaw-landing/` directory. Also compatible with Vercel, Netlify, or any Next.js-compatible platform.
