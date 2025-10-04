@@ -18,7 +18,7 @@ const notoSans = Noto_Sans({
   subsets: ['latin'],
   variable: '--font-noto-sans',
   display: 'swap',
-  weight: ['100', '400', '700'],
+  weight: ['200', '400', '700'],
 });
 
 export const metadata: Metadata = {
