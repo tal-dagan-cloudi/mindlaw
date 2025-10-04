@@ -36,11 +36,11 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-3xl font-medium text-gray-700 hover:text-black transition-colors underline"
+            className="text-3xl font-medium text-gray-700 hover:text-black transition-colors"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
-            Mind<span className="text-gray-400">.</span>Law
+            <span className="underline">Mind</span><span className="text-gray-400">.</span><span className="underline">Law</span>
           </motion.a>
 
           {/* Navigation Links */}
