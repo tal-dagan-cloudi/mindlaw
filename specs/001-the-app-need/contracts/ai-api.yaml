@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: mind.law AI Integration API
+  version: 1.0.0
+  description: AI provider abstraction layer for legal document assistance
+
+servers:
+  - url: https://mindlaw.app/api
+  - url: http://localhost:3000/api
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+  schemas:
+    AIProvider:
+      type: string
+      enum: [claude, openai, glm]
+
+    AIMessage:
+      type: object
+      required:
+        - role
+        - content
+      properties:
+        role:
+          type: string
+          enum: [user, assistant, system]
+        content:
+          type: string
+        confidence_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Citation'
+
+    Citation:
+      type: object
+      required:
+        - text
+        - source
+      properties:
+        text:
+          type: string
+        source:
+          type: string
+        url:
+          type: string
+          format: uri
+        excerpt:
+          type: string
+        confidence:
+          type: number
+
+    StreamChunk:
+      type: object
+      properties:
+        delta:
+          type: string
+        done:
+          type: boolean
+
+security:
+  - bearerAuth: []
+
+paths:
+  /ai/chat/{documentId}/stream:
+    parameters:
+      - name: documentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    post:
+      summary: Stream AI chat response
+      description: Send message and receive streaming AI response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  type: string
+                  minLength: 1
+                provider:
+                  $ref: '#/components/schemas/AIProvider'
+                jurisdiction:
+                  type: string
+                include_citations:
+                  type: boolean
+                  default: true
+      responses:
+        '200':
+          description: Streaming response
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-Sent Events stream
+
+  /ai/providers:
+    get:
+      summary: List AI providers
+      description: Get available AI providers for tenant
+      responses:
+        '200':
+          description: List of providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      $ref: '#/components/schemas/AIProvider'
+                    available:
+                      type: boolean
+                    cost_per_1k_tokens:
+                      type: number
