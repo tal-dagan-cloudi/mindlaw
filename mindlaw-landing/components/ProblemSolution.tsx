@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
-
 export default function ProblemSolution() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -24,17 +22,8 @@ export default function ProblemSolution() {
   ];
 
   return (
-    <section id="solutions" className="relative py-24 bg-white overflow-hidden">
-      {/* Background Accent Images */}
-      <div className="absolute top-0 right-0 w-1/3 h-full opacity-5">
-        <Image
-          src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&q=80"
-          alt="Professional"
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="container mx-auto px-6">
+    <section id="solutions" className="py-24 bg-white">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -93,7 +82,7 @@ export default function ProblemSolution() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-                className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl hover:border-green-200 transition-colors"
+                className="flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl hover:border-green-200 transition-colors"
               >
                 <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

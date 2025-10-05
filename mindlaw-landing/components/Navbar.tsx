@@ -27,7 +27,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200'
           : 'bg-transparent'
       )}
     >
@@ -36,8 +36,8 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-3xl font-medium text-gray-700 hover:text-black transition-colors"
-            whileHover={{ y: -2 }}
+            className="text-2xl font-medium text-black hover:scale-[1.02] transition-transform"
+            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             Mind<span className="text-gray-400">.</span>Law

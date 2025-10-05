@@ -42,7 +42,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <h3 className="text-3xl font-medium text-gray-700 mb-4">
+              <h3 className="text-3xl font-medium text-black mb-4">
                 Mind<span className="text-gray-400">.</span>Law
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -60,7 +60,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <h4 className="font-semibold mb-4 text-sm">{category}</h4>
+              <h4 className="font-semibold mb-4 text-sm text-black">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
