@@ -10,7 +10,7 @@ export function EditorLayout() {
   const [isChatVisible, setIsChatVisible] = useState(true)
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-white">
       {/* Left Sidebar - Menu */}
       <Sidebar
         isCollapsed={isSidebarCollapsed}
@@ -18,13 +18,13 @@ export function EditorLayout() {
       />
 
       {/* Center - Document Editor */}
-      <main className="flex-1 flex flex-col overflow-hidden">
+      <main className="flex-1 flex flex-col overflow-hidden border-l border-r border-gray-200">
         <DocumentEditor onToggleChat={() => setIsChatVisible(!isChatVisible)} />
       </main>
 
       {/* Right Sidebar - AI Chat */}
       {isChatVisible && (
-        <aside className="w-96 border-l border-gray-200 bg-white flex flex-col">
+        <aside className="w-96 bg-white flex flex-col">
           <AIChat onClose={() => setIsChatVisible(false)} />
         </aside>
       )}
