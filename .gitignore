@@ -3,6 +3,17 @@
 node_modules/
 next-env.d.ts
 
+# Environment
+.env.local
+.env*.local
+
+# Database
+prisma/migrations/
+
+# Testing
+coverage/
+.nyc_output/
+
 # Misc
 .DS_Store
 *.log

@@ -1,0 +1,50 @@
+{
+  "name": "mindlaw",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.31.0",
+    "@prisma/client": "^6.1.0",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "@tiptap/pm": "^2.8.0",
+    "@tiptap/react": "^2.8.0",
+    "@tiptap/starter-kit": "^2.8.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^12.23.0",
+    "next": "15.1.4",
+    "openai": "^4.70.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "tailwind-merge": "^2.5.0",
+    "typescript": "5.7.2",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.1.4",
+    "eslint-plugin-security": "^3.0.0",
+    "jsdom": "^25.0.0",
+    "playwright": "^1.49.0",
+    "postcss": "^8.0.0",
+    "prisma": "^6.1.0",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.19.0",
+    "vitest": "^3.0.0"
+  }
+}
