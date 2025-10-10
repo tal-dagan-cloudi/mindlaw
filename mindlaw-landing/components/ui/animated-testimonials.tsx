@@ -24,6 +24,16 @@ export const AnimatedTestimonials = ({
   className,
 }: AnimatedTestimonialsProps) => {
   const [active, setActive] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  // Generate stable random rotations on mount to avoid hydration mismatch
+  const [rotations] = useState(() =>
+    testimonials.map(() => Math.floor(Math.random() * 21) - 10)
+  );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -38,15 +48,11 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && mounted) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay, active]);
-
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  }, [autoplay, active, mounted]);
 
   return (
     <div className={cn("mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12", className)}>
@@ -61,13 +67,13 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: 0,
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: isActive(index) ? 0 : (mounted ? rotations[index] : 0),
                     zIndex: isActive(index)
                       ? 40
                       : testimonials.length + 2 - index,
@@ -77,7 +83,7 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: mounted ? rotations[index] : 0,
                   }}
                   transition={{
                     duration: 0.4,
