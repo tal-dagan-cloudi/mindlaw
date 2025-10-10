@@ -2,14 +2,15 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { BackgroundBeams } from '@/components/ui/background-beams';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import { MagneticButton } from '@/components/ui/magnetic-button';
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Grid Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
+      {/* Animated Background Beams */}
+      <BackgroundBeams />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
@@ -25,15 +26,19 @@ export default function Hero() {
             Transforming Legal Intelligence with AI
           </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
+          {/* Main Headline with Text Generate Effect */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tight text-black mb-6"
           >
-            Professional Class Legal AI
-          </motion.h1>
+            <TextGenerateEffect
+              words="Professional Class Legal AI"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tight text-black mb-6"
+              duration={0.6}
+              staggerDelay={0.08}
+            />
+          </motion.div>
 
           {/* Subheadline */}
           <motion.p
@@ -47,27 +52,25 @@ export default function Hero() {
             analysis, and deliver superior outcomes.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons with Magnetic Effect */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <MagneticButton
+              strength={0.2}
               className="px-8 py-4 bg-black text-white text-base font-medium rounded-lg hover:bg-gray-900 transition-colors shadow-lg"
             >
               Request a Demo
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            </MagneticButton>
+            <MagneticButton
+              strength={0.2}
               className="px-8 py-4 bg-white text-black text-base font-medium rounded-lg border-2 border-black hover:bg-gray-50 transition-colors"
             >
               View Platform
-            </motion.button>
+            </MagneticButton>
           </motion.div>
 
           {/* Trust Indicators */}

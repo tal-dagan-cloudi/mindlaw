@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 
 const features = [
   {
@@ -71,16 +72,34 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative p-8 bg-white border border-gray-200 rounded-2xl hover:border-black hover:shadow-xl transition-all duration-300"
     >
-      <div className="mb-4 text-black group-hover:scale-110 transition-transform duration-300">
-        {feature.icon}
-      </div>
-      <h3 className="text-xl font-serif font-bold mb-3">{feature.title}</h3>
-      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+      <CardContainer className="w-full">
+        <CardBody className="group relative p-8 bg-white border border-gray-200 rounded-2xl hover:border-black hover:shadow-2xl transition-all duration-300">
+          <CardItem
+            translateZ={50}
+            className="mb-4 text-black group-hover:scale-110 transition-transform duration-300"
+          >
+            {feature.icon}
+          </CardItem>
+          <CardItem
+            as="h3"
+            translateZ={60}
+            className="text-xl font-serif font-bold mb-3"
+          >
+            {feature.title}
+          </CardItem>
+          <CardItem
+            as="p"
+            translateZ={40}
+            className="text-gray-600 leading-relaxed"
+          >
+            {feature.description}
+          </CardItem>
 
-      {/* Hover Effect Line */}
-      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-500" />
+          {/* Hover Effect Line */}
+          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-500" />
+        </CardBody>
+      </CardContainer>
     </motion.div>
   );
 }

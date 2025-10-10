@@ -1,5 +1,10 @@
 import { EditorLayout } from '@/components/EditorLayout'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export default function Home() {
-  return <EditorLayout />
+  return (
+    <LanguageProvider>
+      <EditorLayout />
+    </LanguageProvider>
+  )
 }
